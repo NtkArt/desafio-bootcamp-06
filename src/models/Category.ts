@@ -17,7 +17,9 @@ class Category {
   @Column()
   title: string;
 
-  @OneToMany(() => Transaction, transaction => transaction.category)
+  @OneToMany(() => Transaction, transaction => transaction.category, {
+    eager: true,
+  })
   transaction: Transaction;
 
   @CreateDateColumn()
